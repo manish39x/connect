@@ -1,0 +1,17 @@
+.btn {
+  background: #ffef5f;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.test {
+  border: 1px solid red;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

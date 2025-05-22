@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+
+  scrollbar-width: 3px;
+  scrollbar-color: #718039 #191a1d;
+}
+*::-webkit-scrollbar {
+  max-width: 3px;
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #191a1d;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #718039;
+}
+
+:root {
+  --text-unique: #ffef5f;
+  --bg-primary: #121213;
+  --bg-secondary: #32323b;
+  --bg-unique: #ffef5f;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.bg-unique {
+  background: var(--text-unique);
+}
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+.font-primary {
+  font-family: "Ubuntu", sans-serif;
+}
+.font-primary {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.text-unique {
+  color: var(--text-unique);
+}
+
+.container {
+  max-width: 110rem;
+}
