@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import "../css/components.css"
+import TaskManager from "./TaskManager";
 
 const Header = () => {
   const mobMenu = useRef<HTMLDivElement>(null);
@@ -109,6 +110,8 @@ const Header = () => {
           <div className="close-task bg-unique cursor-pointer w-[30px] flex-center aspect-square text-black rounded-full absolute right-[-8px] top-[-8px]" onClick={() => setShowTaskManager(false)}>
             <i className="fa-solid fa-xmark text-[20px]"></i>
           </div>
+
+          <TaskManager />
 
         </div>
       </div>
