@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import "../css/components.css"
 import TaskManager from "./TaskManager";
+import Auth from "./Auth";
 
 const Header = () => {
   const mobMenu = useRef<HTMLDivElement>(null);
@@ -11,6 +12,7 @@ const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [showSearchBox, setShowSearchBox] = useState(false)
   const [showTaskManager, setShowTaskManager] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
 
   return ( 
     <div className='bg-secondary text-white flex justify-center'>
@@ -38,7 +40,7 @@ const Header = () => {
               </div> 
             </div>
 
-            <div className="notification flex flex-col justify-center items-center ml-[10px] cursor-pointer" onClick={() => setShowTaskManager(prev => !prev)}>
+            <div className="task flex flex-col justify-center items-center ml-[10px] cursor-pointer" onClick={() => setShowTaskManager(prev => !prev)}>
               <i className="fa-solid fa-list-check"></i>
               <span className="text-[13px]">Tasks</span>
               
@@ -50,7 +52,7 @@ const Header = () => {
             >
               <i className="fa-solid fa-magnifying-glass"></i>
             </div>
-            <button className="btn px-[10px] py-[5px]">
+            <button className="btn bg-unique px-[10px] py-[5px]" onClick={() => setShowLogin(prev => !prev)}>
               Login
             </button>
           </div>
@@ -95,10 +97,10 @@ const Header = () => {
             <nav>
               <ul className='nav-links flex flex-col '>
                 <li className='nav-link text-unique-hover' onClick={() => {navigate('/'); setShowMobileMenu(false)}}>Latest Updates</li>
-                <li className='nav-link text-unique-hover' onClick={() => {navigate('/trending'); setShowMobileMenu(false)}}>Dashboard</li>
-                <li className='nav-link text-unique-hover' onClick={() => {navigate('/tv'); setShowMobileMenu(false)}}>Friends</li>
-                <li className='nav-link text-unique-hover' onClick={() => {navigate('/movies'); setShowMobileMenu(false)}}>Club</li>
-                <li className='nav-link text-unique-hover' onClick={() => {navigate('/ovas'); setShowMobileMenu(false)}}>House</li>
+                <li className='nav-link text-unique-hover' onClick={() => {navigate('/dashboard'); setShowMobileMenu(false)}}>Dashboard</li>
+                <li className='nav-link text-unique-hover' onClick={() => {navigate('/friends'); setShowMobileMenu(false)}}>Friends</li>
+                <li className='nav-link text-unique-hover' onClick={() => {navigate('/clubs'); setShowMobileMenu(false)}}>Clubs</li>
+                <li className='nav-link text-unique-hover' onClick={() => {navigate('/houses'); setShowMobileMenu(false)}}>Houses</li>
               </ul>
             </nav>
           </div>
@@ -106,13 +108,22 @@ const Header = () => {
       </div>
 
       <div className={`task-manager w-screen h-screen fixed bg-[#1a17177a] justify-center items-center ${showTaskManager ? "flex": "hidden"}`}>
-        <div className="task-container bg-secondary w-full h-[30rem] max-w-[30rem] rounded-[10px] relative">
+        <div className="task-container bg-secondary w-full min-h-[30rem] max-w-[30rem] rounded-[10px] relative">
           <div className="close-task bg-unique cursor-pointer w-[30px] flex-center aspect-square text-black rounded-full absolute right-[-8px] top-[-8px]" onClick={() => setShowTaskManager(false)}>
             <i className="fa-solid fa-xmark text-[20px]"></i>
           </div>
 
           <TaskManager />
 
+        </div>
+      </div>
+
+      <div className={`${showLogin ? "flex":"hidden"} w-screen h-screen fixed bg-[#1a17177a] justify-center items-center `}>
+        <div className="auth-container bg-secondary w-full min-h-[25rem] max-w-[30rem] rounded-[10px] relative">
+          <div className="close-task bg-[white] cursor-pointer w-[30px] flex-center aspect-square text-black rounded-full absolute right-[-10px] top-[-10px] z-30" onClick={() => setShowLogin(false)}>
+            <i className="fa-solid fa-xmark text-[20px]"></i>
+          </div>
+          <Auth />
         </div>
       </div>
 
